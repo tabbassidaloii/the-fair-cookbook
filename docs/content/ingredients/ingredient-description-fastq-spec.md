@@ -72,7 +72,7 @@ See the publication: https://doi.org/10.1093/nar/gkp1137 . It contains in the Su
 >     fastq-illumina:  A  B  C  D  E  F  G  H  I  J   K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
 
 
-Note how the "illumina" encoding can only hold the PHRED scores 0--61, all the scores above are represented by the same character. In contrast, the "illumina" encoding supports PHRED scores from 0 to 93.
+Note how the "illumina" encoding can only hold the PHRED scores 0--61, all the scores above are represented by the same character. In contrast, the "illumina" encoding supports PHRED scores from 0 to 93. Also, the "illumina" encoding is actually a subset of the "sanger" encoding (the characters of "illumina" encoding start at PHRED score of 32 in the "sanger" encoding).
 
 There is no way to tell from the FASTQ file itself, which encoding of the PHRED scores is used; whether it is the "sanger" system or the "illumina" system.
 In the worst case, you might mistake the quality scores for being all excellent or all terrible when you or your program is expecting just the opposite encoding of the PHRED scores.
