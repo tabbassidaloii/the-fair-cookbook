@@ -1,7 +1,7 @@
 
 
 # Table of Contents
-0. [#Abstract][#Abstract]
+0. <#Abstract>
 1. [#What is FASTQ used for?]
 2. [#What means "weak specification"?](#Graphical%20Overview%20of%20the%20FAIRification%20Recipe%20Objectives)
 3. [#What are the variants of FASTQ to expect?](#FAIRification%20Objectives,%20Inputs%20and%20Outputs)
@@ -23,7 +23,7 @@ The FASTQ format is a popular format for storing sequences (i.e. letters represe
 
 The FASTQ format transports not only the sequence as determined by the sequencing machine, but also the quality (=trustworthiness) of each letter.
 
-For more information on the FASTQ format, the authors recommend the wikipedia article as a start: [https://en.wikipedia.org/wiki/FASTQ_format]
+For more information on the FASTQ format, the authors recommend the wikipedia article as a start: <https://en.wikipedia.org/wiki/FASTQ_format>
 
 ___
 
