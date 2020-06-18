@@ -62,10 +62,12 @@ Direct quotation from Wikipedia (<https://en.wikipedia.org/wiki/FASTQ_format>):
 >
 > The original Sanger FASTQ files also allowed the sequence and quality strings to be wrapped (split over multiple lines), but this is generally
 > discouraged as it can make parsing complicated due to the unfortunate choice of "@" and "+" as markers (these characters can also occur in the quality
-> string).
+> string)."
+(end of direct quotation)
 
 
-See the publication: https://doi.org/10.1093/nar/gkp1137 . It contains in the Supplementary Material a collection of valid FASTQ files of different formats, as well as invalid files. Variants defined in this publication are called e.g. "fastq-sanger" and "fastq-illumina", which differ only in the way they encode PHRED scores (i.e. the quality scores):
+
+An excellent resource for understanding the FASTQ format is this publication: <https://doi.org/10.1093/nar/gkp1137>. It contains in the Supplementary Material a collection of valid FASTQ files of different formats, as well as invalid files. Variants defined in this publication are called e.g. "fastq-sanger" and "fastq-illumina", which differ only in the way they encode PHRED scores (i.e. the quality scores):
 
 >     PHRED score:     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93
 >     fastq-sanger:    !  "  #  $  %  &  '  (  )  *   +  ,  -  .  /  0  1  2  3  4  5  6  7  8  9  :  ;  <  =  >  ?  @  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~
