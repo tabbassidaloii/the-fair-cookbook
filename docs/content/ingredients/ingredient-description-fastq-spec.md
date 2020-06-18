@@ -67,9 +67,12 @@ Direct quotation from Wikipedia (<https://en.wikipedia.org/wiki/FASTQ_format>):
 
 See the publication: https://doi.org/10.1093/nar/gkp1137 . It contains in the Supplementary Material a collection of valid FASTQ files of different formats, as well as invalid files. Variants defined in this publication are called e.g. "fastq-sanger" and "fastq-illumina", which differ only in the way they encode PHRED scores (i.e. the quality scores):
 
->     PHRED score:     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 ...                                                                                      
->     fastq-sanger:    !  "  #  $  %  &  '  (  )  *   +  ,  -  .  /  0  1  2  3  4  5  6  7  8  9  :  ;  <  =  >  ?  @  A  B  C  D EFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
->     fastq-illumina:  A  B  C  D  E  F  G  H  I  J   K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d efghijklmnopqrstuvwxyz{|}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>     PHRED score:     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93
+>     fastq-sanger:    !  "  #  $  %  &  '  (  )  *   +  ,  -  .  /  0  1  2  3  4  5  6  7  8  9  :  ;  <  =  >  ?  @  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~
+>     fastq-illumina:  A  B  C  D  E  F  G  H  I  J   K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~  ~
+
+
+Note how the "illumina" encoding can only hold the PHRED scores 0--61, all the scores above are represented by the same character. In contrast, the "illumina" encoding supports PHRED scores from 0 to 93.
 
 There is no way to tell from the FASTQ file itself, which encoding of the PHRED scores is used; whether it is the "sanger" system or the "illumina" system.
 In the worst case, you might mistake the quality scores for being all excellent or all terrible when you or your program is expecting just the opposite encoding of the PHRED scores.
