@@ -32,6 +32,35 @@ B --> C(FASTQ file validation output)
 
 ___
 
+
+## Requirements:
+
+This recipe assumes the following:
+
+  - you have a Linux machine available, preferentially Debian (no root access needed)
+  - you have basic knowledge of how to use a terminal (bash or similar)
+  - you are sufficiently skilled in Python (basic skills sufficient)
+  - Python3 and pip are installed
+  - your file is available from your home directory and we assume for simplicity in the following that it is called `myfile.fastq` (replace this filename as necessary in the recipe instructions; you can download a demo file from here: [/static_assets/myfile.fastq]
+
+
+Checking the requirements (tests):
+
+  - Start up a console. Type `echo hello` and hit return. You should see `hello` as output.
+  - OPTIONAL: Switch to your favorite virtual environment solution (e.g. via `conda activate py3`), if you use such a solution.
+  - Execute `python -V` and check its output. It should be roughly similar to `Python 3.7.4`.
+  - Execute `pip -V` and check its output. It should be roughly similar to `pip 19.2.3 from /home/r.giessmann/anaconda3/envs/py3/lib/python3.7/site-packages/pip (python 3.7)`.
+
+___
+
+## Recipe instructions
+
+### Install BioPython
+
+```python
+```
+
+
 ## Capability & Maturity Table
 
 | Capability  | Initial Maturity Level | Final Maturity Level  |
@@ -54,18 +83,6 @@ ___
 | [FASTQ](https://fairsharing.org/FAIRsharing.r2ts5t)  |
 ___
 
-
-## Executable Code in Notebook
-
-
-```python
-import isatools
-import json
-import pandas as pd
-import holoview
-```
-
-___
 
 ## Authors:
 
