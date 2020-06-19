@@ -83,7 +83,32 @@ import Bio
 import Bio.SeqIO
 ```
 
-###
+### Pre-load the FASTQ file, run a very basic check
+
+Execute further in the python session from above:
+
+```
+fastq_generator =  Bio.SeqIO.parse("myfile.fastq", format="fastq-sanger")
+
+how_many_reads_are_ok = 0
+
+try:
+    for read in fastq_generator:
+      how_many_reads_are_ok += 1
+except ValueError as error:
+      print(f"{how_many_reads_are_ok} reads were ok until I hit an invalid read; the error message is:")
+      print(error)
+      raise error
+```
+
+This will raise an Exception (actually: a ValueError) with a very short, and possibly inconclusive error message.
+
+
+### Limitations
+
+This recipe in its current form has the following limitations regarding specification validation:
+
+  - 
 
 
 
