@@ -1,13 +1,15 @@
 
 # Table of Contents
-0. [Abstract]
-1. [Main FAIRification Objectives](#Main%20FAIRification%20Objectives)
-2. [Graphical Overview of the FAIRification Recipe Objectives](#Graphical%20Overview%20of%20the%20FAIRification%20Recipe%20Objectives)
-3. [FAIRification Objectives, Inputs and Outputs](#FAIRification%20Objectives,%20Inputs%20and%20Outputs)
-4. [Capability & Maturity Table](#Capability%20&%20Maturity%20Table)
+0. [Abstract](#Abstract)
+1. [Graphical Overview](#Graphical%20Overview)
+2. [Requirements](#Requirements)
+3. [Recipe instructions](#Recipe%20instructions)
+4. [Possible improvements from the state of this recipe](#Possible%20improvements%20from%20the%20state%20of%20this%20recipe)
+5. [Further reading](#Further%20reading)
+6. [Capability & Maturity Table](#Capability%20&%20Maturity%20Table)
+7. [FAIRification Objectives, Inputs and Outputs](#FAIRification Objectives, Inputs and Outputs)
 5. [Table of Data Standards](#Table%20of%20Data%20Standards)
-6. [Executable Code in Notebook](#Executable%20Code%20in%20Notebook)
-7. [How to create workflow figures](#How%20to%20create%20workflow%20figures)
+6. [Authors](#Authors)
 8. [License](#License)
 
 ---
@@ -19,7 +21,7 @@ The FASTQ format is a popular format for storing sequences (i.e. letters represe
 ___
 
 
-## Graphical Overview of the FAIRification Recipe Objectives
+## Graphical Overview
 
 [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbkF7UmVxdWlyZW1lbnRzIGZ1bGZpbGxlZD99IC0tPnxZZXN8IEJbQXBwbHkgdGhpcyByZWNpcGVdXG5BIC0tPnxOb3wgRChTVE9QKVxuQiAtLT4gQyhGQVNUUSBmaWxlIHZhbGlkYXRpb24gb3V0cHV0KVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbkF7UmVxdWlyZW1lbnRzIGZ1bGZpbGxlZD99IC0tPnxZZXN8IEJbQXBwbHkgdGhpcyByZWNpcGVdXG5BIC0tPnxOb3wgRChTVE9QKVxuQiAtLT4gQyhGQVNUUSBmaWxlIHZhbGlkYXRpb24gb3V0cHV0KVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -27,11 +29,10 @@ ___
 graph TD
 A{Requirements fulfilled?} -->|Yes| B[Apply this recipe]
 A -->|No| D(STOP)
-B --> C(FASTQ file validation output)
+B --> C(human-readable FASTQ file validation output)
 </div>
 
-___
-
+---
 
 ## Requirements:
 
@@ -83,33 +84,47 @@ import Bio
 import Bio.SeqIO
 ```
 
-### Pre-load the FASTQ file, run a very basic check
+### Pre-load the FASTQ file, run a very basic file format validation check
 
 Execute further in the python session from above:
 
 ```
-fastq_generator =  Bio.SeqIO.parse("myfile.fastq", format="fastq-sanger")
-
-how_many_reads_are_ok = 0
-
-try:
-    for read in fastq_generator:
-      how_many_reads_are_ok += 1
-except ValueError as error:
-      print(f"{how_many_reads_are_ok} reads were ok until I hit an invalid read; the error message is:")
-      print(error)
-      raise error
+fastq_iterator =  Bio.SeqIO.parse("myfile.fastq", format="fastq-sanger")
+for read in fastq_iterator:
+    pass
 ```
 
-This will raise an Exception (actually: a ValueError) with a very short, and possibly inconclusive error message.
+This will raise an Exception (actually: a ValueError) with a very short, and a possibly inconclusive error message.
+
+If no message is obtained, the file format validation was successful in its given form.
 
 
-### Limitations
+### Limitations of this recipe
 
-This recipe in its current form has the following limitations regarding specification validation:
+This recipe in its current form has the following limitations regarding format validation:
 
-  - 
+  - with the tool above, the nucleotide alphabet is checked by default only on whether it conforms to a "SingleLetterAlphabet", but this allows even insensible characters such as `ä` as nucleotide letters.
+  - the error messages are not indicating at which position exactly an error occured, i.e. which letter of the quality score is incorrect (the error message is e.g. `ValueError: Invalid character in quality string` where it might be preferable to get an error message like `ValueError: Invalid character "ö" in quality string of read 12 at position 5.`)
+  - the read names are not further checked and might not fulfill specific requirements of the subsequent tool, for which this check was supposed to be designed.
 
+
+### Extendability of this recipe
+
+- The tool above can also be used to check selectively for other variants of the PHRED score encoding, i.e. `fastq-illumina` or `fastq-solexa`. See <https://biopython.org/wiki/SeqIO> for a list of supported file formats.
+- This recipe can also be applied to check general sequences without quality scores, e.g. files in FASTA format.
+
+
+## Possible improvements from the state of this recipe
+
+- It would be preferable to introduce a further, harder check for the specification of the nucleotide sequence, e.g. only allowing the the "IUPAC DNA alphabet" (see <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC322779>), including degenerate bases (e.g. `B` representing the bases (`A` OR `G` OR `T`), lowercase and uppercase mixtures (e.g. `acGTgTGaa`), and gaps (symbolized by `.`).
+- It might be possible to extend the tool above into the desired direction of more consistent checks, considering the content of <https://biopython.org/wiki/SeqIO_dev>.
+- It would be preferable to be able to exchange the concrete FASTQ specification that was used to derive the validation result with other tools and/or make them visible.
+- It would be preferable to document the result of the file format validation in a machine-readable and consistent way.
+
+
+## Further reading
+
+- The documentation of BioPython, and specifically Bio.SeqIO: <https://biopython.org/docs/1.77/api/Bio.SeqIO.QualityIO.html>
 
 
 ## Capability & Maturity Table
@@ -126,13 +141,15 @@ This recipe in its current form has the following limitations regarding specific
 | :------------- | :------------- | :------------- |
 | [Format Validation](http://edamontology.org/operation_0336)  | [FASTQ file](https://fairsharing.org/FAIRsharing.r2ts5t)  | [report](http://edamontology.org/data_2048)  |
 
+---
 
 ## Table of Data Standards
 
 | Data Formats  |
 | :------------- |
 | [FASTQ](https://fairsharing.org/FAIRsharing.r2ts5t)  |
-___
+
+---
 
 
 ## Authors:
@@ -141,7 +158,7 @@ ___
 | :------------- | :------------- | :------------- |:------------- |
 | Robert T. Giessmann |  Bayer AG | [0000-0002-0254-1500](https://http://orcid.org/0000-0002-0254-1500) | Writing - Original Draft |
 
-___
+---
 
 
 ## License:
