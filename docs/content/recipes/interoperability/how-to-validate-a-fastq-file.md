@@ -12,12 +12,11 @@
 
 ---
 
-## Main Objectives
+## Abstract
 
-The main purpose of this recipe is:
+The FASTQ format is a popular format for storing sequences (i.e. letters representing nucleotides in a piece of DNA) and their corresponding quality scores. However, FASTQ files can exhibit a large variety of variants=dialects, and might get corrupted during file transfers. It is thus important to check the conformance of a given FASTQ file to a specific expectation of "how it should look like", e.g. to ensure compatibility with a given tool. This recipe will outline how a FASTQ file can be checked locally, i.e. without transferring it out of the borders of a certain local computer environment.
 
-> Making self describing tabular data using Frictionless tools instead of dumping Excel files.
-
+---- To anticipate the exact scope of "certain local computer environments": Linux machine (assuming Debian, but probably extendable to other distros), Python3 and pip3 already installed, no root access.
 ___
 
 
