@@ -14,21 +14,20 @@
 
 ## Abstract
 
-The FASTQ format is a popular format for storing sequences (i.e. letters representing nucleotides in a piece of DNA) and their corresponding quality scores. However, FASTQ files can exhibit a large variety of variants=dialects, and might get corrupted during file transfers. It is thus important to check the conformance of a given FASTQ file to a specific expectation of "how it should look like", e.g. to ensure compatibility with a given tool. This recipe will outline how a FASTQ file can be checked locally, i.e. without transferring it out of the borders of a certain local computer environment.
+The FASTQ format is a popular format for storing sequences (i.e. letters representing nucleotides in a piece of DNA) and their corresponding quality scores. However, FASTQ files can exhibit a large variety of variants=dialects, or might get corrupted during file transfers. It is thus important to check the conformance of a given FASTQ file to a specific expectation of "how it should look like", e.g. to ensure compatibility with a given tool. This recipe will outline how a FASTQ file can be checked locally, i.e. without transferring it out of the borders of a certain local computer environment.
 
----- To anticipate the exact scope of "certain local computer environments": Linux machine (assuming Debian, but probably extendable to other distros), Python3 and pip3 already installed, no root access.
 ___
 
 
 ## Graphical Overview of the FAIRification Recipe Objectives
 
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbkF7UmVxdWlyZW1lbnRzIGZ1bGZpbGxlZD99IC0tPnxZZXN8IEJbQXBwbHkgdGhpcyByZWNpcGVdXG5BIC0tPnxOb3wgRChTVE9QKVxuQiAtLT4gQyhGQVNUUSBmaWxlIHZhbGlkYXRpb24gb3V0cHV0KVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbkF7UmVxdWlyZW1lbnRzIGZ1bGZpbGxlZD99IC0tPnxZZXN8IEJbQXBwbHkgdGhpcyByZWNpcGVdXG5BIC0tPnxOb3wgRChTVE9QKVxuQiAtLT4gQyhGQVNUUSBmaWxlIHZhbGlkYXRpb24gb3V0cHV0KVxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
 <div class="mermaid">
-graph LR;
-   A[Data Acquisition] -->B(Raw Data)
-   B --> C{FAIR by Design}
-   C -->|Yes| D[Standard Compliant Data]
-   C -->|No| E[Vendor locked Data]
+graph TD
+A{Requirements fulfilled?} -->|Yes| B[Apply this recipe]
+A -->|No| D(STOP)
+B --> C(FASTQ file validation output)
 </div>
 
 ___
@@ -45,19 +44,14 @@ ___
 
 | Actions.Objectives.Tasks  | Input | Output  |
 | :------------- | :------------- | :------------- |
-| [validation](http://edamontology.org/operation_2428)  | [Structure Data File (SDF)](https://fairsharing.org/FAIRsharing.ew26v7)  | [report](http://edamontology.org/data_2048)  |
-| [calculation](http://edamontology.org/operation_3438)  | [Structure Data File (SDF)](https://fairsharing.org/FAIRsharing.ew26v7) | [InChi](https://fairsharing.org/FAIRsharing.ddk9t9) |
-| [calculation](http://edamontology.org/operation_3438)  | [Structure Data File (SDF)](https://fairsharing.org/FAIRsharing.ew26v7)  | [SMILES](https://fairsharing.org/FAIRsharing.qv4b3c)  |
-| [text annotation](http://edamontology.org/operation_3778)  | [Human Phenotype Ontology](https://fairsharing.org/FAIRsharing.kbtt7f)  | [annotated text](http://edamontology.org/data_3779)  |
+| [Format Validation](http://edamontology.org/operation_0336)  | [FASTQ file](https://fairsharing.org/FAIRsharing.r2ts5t)  | [report](http://edamontology.org/data_2048)  |
 
 
 ## Table of Data Standards
 
-| Data Formats  | Terminologies | Models  |
-| :------------- | :------------- | :------------- |
-| [FASTQ](https://fairsharing.org/FAIRsharing.r2ts5t)  | [LOINC](https://fairsharing.org/FAIRsharing.2mk2zb)  | [SRA XML](https://fairsharing.org/FAIRsharing.q72e3w)  |
-| [DICOM](https://fairsharing.org/FAIRsharing.b7z8by)  | [Human Phenotype Ontology](https://fairsharing.org/FAIRsharing.kbtt7f)  | [OMOP](https://fairsharing.org/FAIRsharing.qk984b)  |
-
+| Data Formats  |
+| :------------- |
+| [FASTQ](https://fairsharing.org/FAIRsharing.r2ts5t)  |
 ___
 
 
