@@ -38,7 +38,7 @@ ___
 This recipe assumes the following:
 
   - you have a Linux machine available, preferentially Debian (no root access needed)
-  - you have basic knowledge of how to use a terminal (bash or similar)
+  - you have basic knowledge of how to use a terminal (called "shell", this can be bash or similar)
   - you are sufficiently skilled in Python (basic skills sufficient)
   - Python3 and pip are installed
   - your file is available from your home directory and we assume for simplicity in the following that it is called `myfile.fastq` (replace this filename as necessary in the recipe instructions; you can download a demo file from here: [/static_assets/myfile.fastq]
@@ -57,8 +57,34 @@ ___
 
 ### Install BioPython
 
-```python
+On the shell, execute:
+
 ```
+pip install --user biopython
+```
+
+(adapt if you are an experienced user)
+
+
+We assume here `biopython-1.77` will be installed now.
+
+### Start Python, load Biopython
+
+On the shell execute:
+
+`python`
+
+This will bring you into the python parser. (More experienced users might want to start `ipython` instead.)
+
+Now, load the Biopython package and the SeqIO module with:  
+
+```
+import Bio
+import Bio.SeqIO
+```
+
+###
+
 
 
 ## Capability & Maturity Table
