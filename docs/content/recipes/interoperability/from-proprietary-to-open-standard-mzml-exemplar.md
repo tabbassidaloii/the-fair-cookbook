@@ -72,7 +72,7 @@
 ## Main Objectives
 
 - Document how to convert raw data from a propriatory, vendor specific format to an open standard format.
-- Apply the approach to an IMI dataset, more specifically  a targeted metabolic profiling using Biocrates kit produced by IMI Resolute project.
+- Apply the approach to an IMI dataset, more specifically  a targeted metabolic profiling using Biocrates kit produced by [IMI Resolute project](https://re-solute.eu/).
 
 
 ___
@@ -80,6 +80,11 @@ ___
 
 
 ## Graphical Overview of the FAIRification Recipe Objectives
+
+> [name=Fuqi][color=blue] I find the phrase "FAIR by Design" a bit ambiguous. I also would like to add one more box B(Raw Data)->C[__open standard available?__]->D{FAIR by design?} 
+
+> To reflect _step3.6. Testing and processing the resulting mzML files_, can there be an additional box after D[standar Compliant Data] -> E[testing, optional]. 
+
 
 <div class="mermaid">
 
@@ -108,7 +113,7 @@ ___
 
 | Actions.Objectives.Tasks  | Input | Output  |
 | :------------- | :------------- | :------------- |
-| [formatting](http://edamontology.org/operation_3438)  | [Waters MS format]()  | [mzML](https://fairsharing.org/FAIRsharing.26dmba)  |
+| [formatting](http://edamontology.org/operation_3434)  | [Waters MS format](http://edamontology.org/format_3858)  | [mzML](https://fairsharing.org/FAIRsharing.26dmba)  |
 | [text annotation](http://edamontology.org/operation_3778)  | [PSI-MS](https://fairsharing.org/FAIRsharing.284e1z)  | [annotated text](http://edamontology.org/data_3779)  |
 
 
@@ -139,13 +144,21 @@ ___
 - [jupyter notebook](https://jupyter.org/)
 - [sparql](https://www.w3.org/TR/sparql11-query/) -->
 
-
+>[name=Fuqi][color=blue]
+> Would be nice to add one or two sentence explaning why converting to open standard. 
+> I am not very familiar with MS files. I guess this recipe is important because there are too many variants of MS files? It would be nice to add one sentence explaning what is Water raw file, and what is mzML.
 
 ## Step by Step Process:
 
 ### Step 1: obtain the dataset
 
-In the case of the [IMI RESOLUTE]() project, the data is released via the [University of Luxembourg]() server (assuming you have access resolved):
+> [name=Fuqi Xu][color=blue] is it possible to provide a more generic example along with the RESOLUTE one. I don't think many readers have access to this dir.
+> 
+> Or if the dataset is public and not too big, can we put it in the cookbook repo.?
+> 
+> I tested this recipe with the [Proteowizard example data](https://github.com/ProteoWizard/pwiz/tree/master/example_data)
+
+In the case of the [IMI RESOLUTE](https://www.imi.europa.eu/projects-results/project-factsheets/resolute) project, the data is released via the [University of Luxembourg](https://wwwen.uni.lu/) server (assuming you have access resolved):
 
 ```bash
 $> sftp fairplus@NNN.000.000.NNN
@@ -156,20 +169,21 @@ $>
 :warning: `NNN.000.000.NNN` should be replaced with the proper IP address to the University of Luxembourg server once users have obtained data access clearance.
 
 ### Step 2: inspect the content of the archive
+>[name=Fuqi][color=blue] Preprocessing/inspecting is very important. Also it is nice to provide a step-by-step guide. However, i find this section a little bit distractive.
 
-#### i. copying the archive to a working directory
+#### 2.1. copying the archive to a working directory
 ```bash
 $>mv RESOLUTE_Targted_Metabolomics_of_parental_cell_lines.tar.gz /IMI-FAIR+/RESOLUTE
 $>cd /IMI-FAIR+/RESOLUTE/
 ```
-#### ii. expand the archive
+#### 2.2. expand the archive
 
 ```bash
 $>gunzip RESOLUTE_Targted_Metabolomics_of_parental_cell_lines.tar.gz
 $>tar -xvf RESOLUTE_Targted_Metabolomics_of_parental_cell_lines.tar
 $>cd RESOLUTE_Targted_Metabolomics_of_parental_cell_lines
 ```
-#### iii. inspect the folder
+#### 2.3. inspect the folder
 
 ```bash
 >$anaconda3-2019.10) bob-MacBook-3:RESOLUTE_Targted_Metabolomics_of_parental_cell_lines philippe$ ls -la
@@ -195,6 +209,9 @@ drwxr-xr-x  118 bob  staff    3776 14 Jan 15:53 data
 
 ### Step 3: Convert vendor specific format to an open format
 
+>[name=fuqi][color=blue] The recipe doesn't start until here. I really like this section, where to find the standards. Also, being able to find the standard format is the assumption of this recipe. Can the FAIRsharing section be moved forward?
+>
+
 One can consult the Elixir-UK [FAIRsharing catalog](https://fairsharing.org/) of standards and resources to discover if an open specification exists in the domain of mass spectrometry. In this case, there is as shown below. Note that every records in the catalog has a digital object identifier (DOI), https://fairsharing.org/FAIRsharing.26dmba for HUPO-PSI mzML specifications.
 
 <div>
@@ -204,9 +221,7 @@ One can consult the Elixir-UK [FAIRsharing catalog](https://fairsharing.org/) of
 
 The objective here is to conversion raw data in manufacturer format to an open format, which would allow data to be used without restrictions. To achieve this, we rely on a `containerized` version of the [Proteowizard](https://github.com/ProteoWizard/pwiz).
 
-> **requirements**:
-
-#### 1. install docker: 
+#### 3.1. install docker: 
 
 on a MacOS system, invoke the following:
 
@@ -215,38 +230,47 @@ on a MacOS system, invoke the following:
 >brew install docker
 ```
 
-#### 2. start and sign in to docker
+#### 3.2. sign-up and/or login to https://hub.docker.com/
 
+
+#### 3.3. start and sign in to docker
+
+>[name=Fuqi][color=blue] I am not very familiar with docker. The docker start doesn't work for me here, which container it starts?
 ```bash
 >docker start
 >docker login
 ```
 
-#### 3. sign-up and/or login to https://hub.docker.com/
+#### 3.4. pull the docker container for ProteoWizard:
 
-#### 4. pull the docker container for ProteoWizard:
-
-:warning: be sure to sign-up and login to https://hub.docker.com/
-
-```bash
->docker pull chambm/pwiz-i-agree-to-the-vendor-licenses
-```
-
-* In order to be able to reach
-
+:warning: be sure to sign-up and login to https://hub.docker.com/, in order to reach
 https://hub.docker.com/r/chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
 
+```bash
+>docker pull chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
+```
+#### 3.5. convert raw data to mzML format
 
-* Run the Proteowizard `pwiz tool` from the container over the WATERS raw data, by issueing the following command from the terminal:
+Run the Proteowizard `pwiz tool` from the container over the WATERS raw data, by issueing the following command from the terminal:
 
 ```bash
->docker run -it --rm -e WINEDEBUG=-all -v /Users/bob/Documents/IMI-FAIR+/Resolute/RESOLUTE_Targted_Metabolomics_of_parental_cell_lines/Raw/MCC025_p180_102024_102059_20190125/raw\ data/KIT2-0-8015_1024503073/:/data chambm/pwiz-skyline-i-agree-to-the-vendor-licenses wine msconvert /data/KIT2-0-8015_1024503073_01_0_1_1_10_11000002.raw --mzML
+>docker run -it --rm -e WINEDEBUG=-all \
+    -v /Users/bob/Documents/IMI-FAIR+/Resolute/RESOLUTE_Targted_Metabolomics_of_parental_cell_lines/Raw/MCC025_p180_102024_102059_20190125/raw\   \
+    data/KIT2-0-8015_1024503073/:/data \
+    chambm/pwiz-skyline-i-agree-to-the-vendor-licenses \
+    wine msconvert \
+    /data/KIT2-0-8015_1024503073_01_0_1_1_10_11000002.raw \
+    --mzML
 ```
 
 The command explained:
 
+>[name=fuqi][color=blue]
+> I didn't manage to reproduce it with the example data. Will try again with the RESOLUTE data. would be nice to add more command explaination.
 
-By essence, the resulting mzML files generated during the conversion are syntactically valid documents as the `pwiz` performs validation against the mzml xml schema during the serialization.
+By essence, the resulting mzML files generated during the conversion are syntactically valid documents as the `pwiz` performs validation against the [mzml xml schema](http://www.psidev.info/mzML) during the serialization.
+
+>[name=fuqi][color=blue] in Step 3.6 would it be nice to also validate the converted mzml against the standard xml schema? [schema here](https://raw.githubusercontent.com/HUPO-PSI/mzML/master/schema/schema_1.1/mzML1.1.0.xsd) It might not be a practical option, but it's a 'logical' option?
 
 In some situations, the conversion will fails and no mzML output will be generated. Various reasons can explain failure to convert. The most common ones are corrupted:
  - raw data files 
@@ -275,20 +299,22 @@ To address the latter, one should consult to table of compatibility:
 
 
 
-#### 5. Testing and processing the resulting mzML files:
+#### 3.6. Testing and processing the resulting mzML files:
 
-for users unfamiliar with format, a search via popular search engine will yield options. Alternately, users may consult the Elixir Biotools registry for suggestions.
+For users unfamiliar with format, a search via popular search engine will yield options. Alternately, users may consult the [Elixir Biotools registry](https://bio.tools/) for suggestions.
 
 A number of libraries are available for parsing (reading and writing) `mzML` document. `mzML` is a king of `XML` format for which an XML schema has been defined and allows syntactic validation through standard library in languages such as java, c++ or python. The top hit corresponds the the `pymzml` library.
+
+The `pymzml` library can be installed using `pip3 install pymzml`. 
 
 <div>
 <img src="https://i.imgur.com/BTs0GUS.png" width="750" border="1"/>
 </div>
 
-
-```bash
+>[name=fuqi][color=blue]
+>I tested this script with the PW example data. Is the "KIT3_" file aforementioned? 
+```python
 import os
-import sys
 import pymzml
 from pymzml.plot import Factory
 
@@ -339,7 +365,7 @@ ___
 | :------------- | :------------- | :------------- |:------------- |
 | Philippe Rocca-Serra |  University of Oxford, Data Readiness Group| [0000-0001-9853-5668](https://orcid.org/orcid.org/0000-0001-9853-5668) | Writing - Original Draft |
 | Susanna-Assunta Sansone |  University of Oxford, Data Readiness Group | | Writing - Review & Editing, Funding acquisition | 
-||||Review|
+|Fuqi Xu|EMBL-EBI|[0000-0002-5923-3859](https://orcid.org/0000-0002-5923-3859)|Review|
 ||||Contribution|
 
 ___
@@ -348,4 +374,3 @@ ___
 ## License:
 
 <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-sa.png" height="20"/></a>
-
