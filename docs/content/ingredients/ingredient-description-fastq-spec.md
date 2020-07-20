@@ -85,7 +85,7 @@ In the worst case, you might mistake the quality scores for being all excellent 
 | Name | Affiliation  | orcid | CrediT role  |
 | :------------- | :------------- | :------------- |:------------- |
 | Robert T. Giessmann |  Bayer AG | [0000-0002-0254-1500](https://http://orcid.org/0000-0002-0254-1500) | Writing - Original Draft |
-| Peter Woollard |  GSK | [http://orcid.org/0000-0002-7654-6902](http://orcid.org/0000-0002-7654-6902 | Reviewer |
+| Peter Woollard |  GSK | [http://orcid.org/0000-0002-7654-6902](http://orcid.org/0000-0002-7654-6902) | Reviewer |
 ___
 
 
