@@ -13,15 +13,15 @@
 
 ## Abstract
 
-The FASTQ format is a popular format for storing sequences (i.e. letters representing nucleotides in a piece of DNA) and their corresponding quality scores. FASTQ is a text-based data format with weak specification. This ingredient description will exemplify how a FASTQ file can look like, what variants=dialects are commonly found, and will list some sources for weak=pseudo specifications of this important de facto standard file format.
+The FASTQ format is a popular format for storing nucleic acid sequences (i.e.  the IUPAC single letter codes representing nucleotides in a piece of DNA or RNA) and their corresponding quality scores. FASTQ is a text-based data format with weak specification. This ingredient description will exemplify how a FASTQ file can look like, what variants=dialects are commonly found, and will list some sources for weak=pseudo specifications of this important de facto standard file format.
 
 ___
 
 ## What is FASTQ used for?
 
-The FASTQ format is a popular format for storing sequences (i.e. letters representing nucleotides in a piece of DNA) and their corresponding quality scores. It is used in most genomics research projects, and is a format of choice e.g. for EMBL-EBI's ENA (European Nucleotide Archive) [https://ena-docs.readthedocs.io/en/latest/faq/archive-generated-files.html?highlight=fastq#fastq-file-format], or for NCBI's SRA (Sequencing Read Archive) [https://www.ncbi.nlm.nih.gov/sra/docs/submitformats/#fastq-files]. It also sits in trillions of files on individual researcher's hard disks / drives, in academia as well as in the industry.
+The FASTQ format is a popular format for storing sequences (i.e. the IUPAC single letter codes representing nucleotides in a piece of DNA or RNA) and their corresponding quality scores. It is used in most genomics research projects, and is a format of choice e.g. for EMBL-EBI's ENA (European Nucleotide Archive) [https://ena-docs.readthedocs.io/en/latest/faq/archive-generated-files.html?highlight=fastq#fastq-file-format], or for NCBI's SRA (Sequencing Read Archive) [https://www.ncbi.nlm.nih.gov/sra/docs/submitformats/#fastq-files]. It also sits in trillions of files on individual researcher's hard disks / drives, in academia as well as in the industry.
 
-The FASTQ format transports not only the sequence as determined by the sequencing machine, but also the quality (=trustworthiness) of each letter.
+The FASTQ format includes not only the sequence as determined by the sequencing machine, but also the quality (=trustworthiness) of each NA letter.
 
 For more information on the FASTQ format, the authors recommend the wikipedia article as a start: <https://en.wikipedia.org/wiki/FASTQ_format>
 
@@ -67,7 +67,7 @@ Direct quotation from Wikipedia (<https://en.wikipedia.org/wiki/FASTQ_format>):
 
 
 
-An excellent resource for understanding the FASTQ format is this publication: <https://doi.org/10.1093/nar/gkp1137>. It contains in the Supplementary Material a collection of valid FASTQ files of different formats, as well as invalid files. Variants defined in this publication are called e.g. "fastq-sanger" and "fastq-illumina", which differ only in the way they encode PHRED scores (i.e. the quality scores):
+An excellent resource for understanding the FASTQ format is this publication: "The Sanger FASTQ file format for sequences with quality scores, and the Solexa/Illumina FASTQ variants" <https://doi.org/10.1093/nar/gkp1137>. It contains in the Supplementary Material a collection of valid FASTQ files of different formats, as well as invalid files. Variants defined in this publication are called e.g. "fastq-sanger" and "fastq-illumina", which differ only in the way they encode PHRED scores (i.e. the quality scores):
 
 >     PHRED score:     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93
 >     fastq-sanger:    !  "  #  $  %  &  '  (  )  *   +  ,  -  .  /  0  1  2  3  4  5  6  7  8  9  :  ;  <  =  >  ?  @  A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  [  \  ]  ^  _  `  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z  {  |  }  ~
@@ -85,7 +85,7 @@ In the worst case, you might mistake the quality scores for being all excellent 
 | Name | Affiliation  | orcid | CrediT role  |
 | :------------- | :------------- | :------------- |:------------- |
 | Robert T. Giessmann |  Bayer AG | [0000-0002-0254-1500](https://http://orcid.org/0000-0002-0254-1500) | Writing - Original Draft |
-
+| Peter Woollard |  GSK | [http://orcid.org/0000-0002-7654-6902](http://orcid.org/0000-0002-7654-6902 | Reviewer |
 ___
 
 
