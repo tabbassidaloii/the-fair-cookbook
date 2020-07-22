@@ -219,7 +219,7 @@ One can consult the Elixir-UK [FAIRsharing catalog](https://fairsharing.org/) of
 </div>
 
 
-The objective here is to conversion raw data in manufacturer format to an open format, which would allow data to be used without restrictions. To achieve this, we rely on a `containerized` version of the [Proteowizard](https://github.com/ProteoWizard/pwiz).
+The objective here is to convert raw data in manufacturer format to an open format, which would allow data to be used without restrictions. To achieve this, we rely on a `containerized` version of the [Proteowizard](https://github.com/ProteoWizard/pwiz).
 
 #### 3.1. install docker: 
 
@@ -272,7 +272,7 @@ By essence, the resulting mzML files generated during the conversion are syntact
 
 >[name=fuqi][color=blue] in Step 3.6 would it be nice to also validate the converted mzml against the standard xml schema? [schema here](https://raw.githubusercontent.com/HUPO-PSI/mzML/master/schema/schema_1.1/mzML1.1.0.xsd) It might not be a practical option, but it's a 'logical' option?
 
-In some situations, the conversion will fails and no mzML output will be generated. Various reasons can explain failure to convert. The most common ones are corrupted:
+In some situations, the conversion will fail and no mzML output will be generated. Various reasons can explain failure to convert. The most common ones are corrupted:
  - raw data files 
  - unsupported vendor format
 
