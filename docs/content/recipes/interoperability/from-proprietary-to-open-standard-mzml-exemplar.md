@@ -272,8 +272,8 @@ By essence, the resulting mzML files generated during the conversion are syntact
 
 >[name=fuqi][color=blue] in Step 3.6 would it be nice to also validate the converted mzml against the standard xml schema? [schema here](https://raw.githubusercontent.com/HUPO-PSI/mzML/master/schema/schema_1.1/mzML1.1.0.xsd) It might not be a practical option, but it's a 'logical' option?
 
-In some situations, the conversion will fail and no mzML output will be generated. Various reasons can explain failure to convert. The most common ones are corrupted:
- - raw data files 
+In some situations, the conversion will fail and no mzML output will be generated. Various reasons can explain failure to convert. The most common ones are:
+ - corrupted raw data files 
  - unsupported vendor format
 
 To address the former, it is good practice to compute a hash (md5, sha2) checksum fingerprinting each of the files. This allows to ensure that no file corruption has occurred during transfer and copy.
