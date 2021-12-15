@@ -1,5 +1,5 @@
 (fcb-reusability-data_use)=
-# Declaring data's permitted uses
+# Declaring data permitted uses
 
 +++
 <br/>
@@ -12,7 +12,7 @@
 :reading_time_minutes: 15
 :intended_audience: principal_investigator, data_manager, data_scientist, ontologist  
 :has_executable_code: yeah
-:recipe_name: Declaring data's permitted uses
+:recipe_name: Declaring data permitted uses
 ```` 
 
 ## Main Objectives
@@ -24,9 +24,9 @@ The aim is also to document equivalent representations and how bridges can be bu
 Finally, the content aims to highlight key use-cases which require coverage, how to code such information, documenting implementation patterns in the context of `data cataloguing efforts`, for instance by expressing `Data Access Policies`.
 
 
-## Graphical Overview
+<!-- ## Graphical Overview -->
 
-
+````{dropdown} **Dealing with Policies and Data Use - Graphical Overview**
 
 ```{figure} data-usage-mermaid.png
 ---
@@ -37,38 +37,52 @@ alt: Dealing with Policies and Data Use
 Data Use
 ```
 
+Dealing with Policies and Data Use
+````
 
----
 
-## Capability and Maturity Table.
+<!-- --- -->
 
-| Capability  | Initial Maturity Level | Final Maturity Level  |
- | :------------- | :------------- | :------------- |
- | Interoperability | minimal | repeatable |
+<!-- ## Capability Maturity Level -->
 
----
+```{admonition} **Capability Maturity Level**
+:class: tip, dropdown
 
-## Tools
+| | Capability  | Initial Maturity Level | Final Maturity Level  |
+|:-- |:-------------: | :------------- | :------------- |
+| |Interoperability | minimal | repeatable |
+| |Machine Readable Data Use Policy | minimal | repeatable |
 
-### Standards
 
- Data Formats  | Terminologies | Models  |
-| :------------- | :------------- | :------------- |
-| JSON-LD<!-- TODO add a link to corresponding document --> | <!-- TODO add a link to corresponding document -->  |   |
+```
+
+
+<!-- --- -->
+
+<!-- ## Tools -->
+
+<!-- ### Standards -->
+
+```{admonition} **Relevant list of Standards**
+:class: dropdown
+
+| Data Formats  | Terminologies | Models  |
+| :-------------: | :------------- | :------------- |
+| [JSON-LD](https://www.w3.org/TR/json-ld/)|   |   |
 | [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html)  | [DCAT v2](https://www.w3.org/TR/vocab-dcat-2/)  |   |
 | [ISO-3066](https://www.iso.org/iso-3166-country-codes.html)  | [ODRL](https://www.w3.org/TR/odrl-vocab/)  |   |
-| EGA XML<!-- TODO add a link to corresponding document -->   | [DUO](http://www.obofoundry.org/ontology/duo.html)  |   |
+| [EGA XML](https://github.com/enasequence/schema/tree/master/src/main/resources/uk/ac/ebi/ena/sra/schema)   | [DUO](http://www.obofoundry.org/ontology/duo.html)  |   |
 | [Data Article Tag Suite (DATS)](https://datatagsuite.github.io/schema/)  | [MONDO](http://www.obofoundry.org/ontology/mondo.html)  |   |
 
+```
 
 
-
-### Implementation
+<!-- ### Implementation
 
 DUOS:
 https://duos.broadinstitute.org/
-
----
+ -->
+<!-- --- -->
 
 ## Introduction
 
@@ -808,17 +822,22 @@ This content provides an overview of the models available to do so and how it ha
 
 
 
----
+<!-- --- -->
 
 
-## References
+<!-- ## References -->
+
+````{dropdown} <p color="red">**References**</p> 
 
 ```{footbibliography}
 ```
+````
 
----
+<!-- --- -->
 
-## Authors
+<!-- ## Authors -->
+
+```{dropdown} **Authors** 
 
 | Name                                                                                                                                                                            | Orcid                                                                                                         | Affiliation              | Type                                                                              |                                                              Elixir Node                                                              | Credit Role
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------|-----------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------:|:----------------:|
@@ -828,11 +847,14 @@ This content provides an overview of the models available to do so and how it ha
 | <div class="firstCol"><a target="_blank" href='https://github.com/fuqix'><img class='avatar-style' src='https://avatars.githubusercontent.com/fuqix'></img><div class="d-block">Fuqi Xu</div></a>   </div>      | <a target="_blank" href='https://orcid.org/0000-0002-5923-3859'><i class='fab fa-orcid fa-2x text--orange'></i></a> | EMBL-EBI      | <i class="fas fa-graduation-cap fa-1x text--orange" alt="Academic"></i> | <img class='elixir-style' src='/the-fair-cookbook/_static/images/logo/Elixir/embl.png' ></img> | Writing - Review & Editing
 | <div class="firstCol"><a target="_blank" href='https://github.com/weiguUL'><img class='avatar-style' src='https://avatars.githubusercontent.com/weiguUL'></img><div class="d-block">Wei Gu</div></a>  </div>    | <a target="_blank" href='https://orcid.org/0000-0003-3951-6680'><i class='fab fa-orcid fa-2x text--orange'></i></a> | University of Luxembourg        | <i class="fas fa-graduation-cap fa-1x text--orange" alt="Academic"></i> | <img class='elixir-style' src='/the-fair-cookbook/_static/images/logo/Elixir/ELIXIR-LU.svg' ></img> | Writing - Review & Editing
 
----
+```
 
-## License
+<!-- ---  -->
 
+<!-- ## License -->
+`````{dropdown} **License** 
 ````{license_fairplus}
 CC-BY-4.0
 ````
+`````
 

@@ -20,7 +20,7 @@ html:
   use_edit_page_button      : True  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
   use_repository_button     : True  # Whether to add a link to your repository button
   use_issues_button         : True  # Whether to add an "open an issue" button
-  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  home_page_in_navbar       : True  # Whether to include your home page in the left Navigation Bar
   baseurl                   : "https://fairplus.github.io/the-fair-cookbook"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
   extra_footer              :   # Will be displayed underneath the footer.
@@ -93,6 +93,7 @@ sphinx:
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
     html_extra_path         : ["_inject_after_build"]
     html_baseurl            : 'https://fairplus.github.io/the-fair-cookbook'
+    html_theme_options      : {"search_bar_text": "Find exquisite FAIR recipes..."}
   extra_extensions:   # A list of extra extensions to load by Sphinx.
     - sphinx_sitemap
   local_extensions:

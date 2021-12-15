@@ -9,6 +9,8 @@
       title: Introduction
     - file: content/recipes/introduction/FAIRplus-values
       title: Ethical values of FAIR
+    - file: content/recipes/introduction/FAIR-and-knowledge-graphs
+      title: FAIR and Knowledge Graphs
     - file: content/recipes/glossary-fair-terms
       title: Glossary
       # title: Introduction
@@ -118,7 +120,7 @@
           title: Data licenses #FCB034
         # - file: content/recipes/reusability/license-selection
         - file: content/recipes/reusability/expressing-data-use 
-          title: Declaring data's permitted uses #FCB035
+          title: Declaring data permitted uses #FCB035
         - file: content/recipes/reusability/provenance
           title: Provenance information #FCB036
         # - file: content/recipes/reusability/community-standards
