@@ -48,6 +48,7 @@ However, advances in both theorethical information representation models and tec
 
 
 ````{dropdown} **The 2 main types of Knowledge Graph - Graphical Overview**
+:open:
 
 ```{figure} kg-typology.png
 ---
@@ -165,6 +166,7 @@ An impressive feature of the SPARQL query language is its ability to perform `ma
 We still need to introduce several key concepts to provide a fuller picture of knowledge graph, how they are generated and why they matter.
 
 ````{dropdown} **SPARQL query example: Metabolites and the species they are found in**
+:open:
 ```{figure} wikidata-sparql.jpg
 ---
 width: 1000px
@@ -177,6 +179,7 @@ A SPARQL query over Wikidata RDF endpoint
 
 
 ````{dropdown} **SPARQL query example on WikiData: Cell lines with names that could also be URLs**
+:open:
 ```{figure} wikidata-sparql-celllines.jpg
 ---
 width: 1000px
@@ -267,6 +270,7 @@ RETURN p.stId AS Pathway, rle.stId AS Reaction, rle.displayName AS ReactionName
 
 
 ````{dropdown} **CYPHER query example on Reactome: Comparison with SQL**
+:open:
 ```{figure} pcbi.1005968.g001.jpg
 ---
 width: 700px
@@ -404,7 +408,7 @@ Knowledge graphs are a powerful and flexible to represent information. Their pro
 
 
 ````{dropdown} **References** 
-
+:open:
 ```{footbibliography}
 ```
 <!-- TODO: add to bibliography bibtex file 
