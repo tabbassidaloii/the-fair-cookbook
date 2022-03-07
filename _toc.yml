@@ -7,12 +7,17 @@
     # - file: content/recipes/introduction
     - file: content/recipes/introduction/FAIR-cookbook-audience
       title: Introduction
+    - file: content/recipes/introduction/priorization
+      title: Selecting projects for FAIRification  #FCB055
     - file: content/recipes/introduction/FAIRplus-values
       title: Ethical values of FAIR
+    - file: content/recipes/introduction/fair-cro #FCB056
+      title: Practical Considerations for CROs to play FAIR
     - file: content/recipes/introduction/FAIR-and-knowledge-graphs
       title: FAIR and Knowledge Graphs
     - file: content/recipes/glossary-fair-terms
       title: Glossary
+
       # title: Introduction
       # numbered: true
       # sections:
@@ -99,7 +104,9 @@
                 title: Metadata profile for transcriptomics #FCB027
               - file: content/recipes/interoperability/covid19-sample-metadata-profile-shex-use-case
                 title: Metadata profile validation in RDF #FCB028
-          - file: content/recipes/interoperability/from-proprietary-to-open-standard-mzml-exemplar  
+              - file: content/recipes/interoperability/bioactivity-profile
+                title: Bioactivity data profile #FCB057TENTATIVE
+          - file: content/recipes/interoperability/from-proprietary-to-open-standard-mzml-exemplar
             title: Converting from proprietary to open format #FCB029
           - file: content/recipes/interoperability/rdf-conversion 
             title: An inventory of tools for converting your data to RDF #FCB051
@@ -107,6 +114,11 @@
             title: File format validation, FASTQ example #FCB030
           - file: content/recipes/interoperability/ETL-tools
             title: Extraction, transformation, and loading process #FCB031
+          - file: content/recipes/interoperability/VCF-to-FHIR-conversion
+            title: Clinical Genetic Information as FHIR JSON #FCB058TENTATIVE
+            sections:
+              - file: content/recipes/interoperability/vcf2fhir/FAIRcookbook-vcf2fhir.ipynb
+                title: Converting VCF file to FHIR JSON #FCB059TENTATIVE
 
     - file: content/recipes/reusability
       title: Reusability
