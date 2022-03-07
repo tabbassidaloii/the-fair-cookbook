@@ -93,7 +93,7 @@ sphinx:
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
     html_extra_path         : ["_inject_after_build"]
     html_baseurl            : 'https://fairplus.github.io/the-fair-cookbook'
-    html_theme_options      : {"search_bar_text": "Find exquisite FAIR recipes..."}
+    html_theme_options      : {"search_bar_text": "Search for FAIR recipes (^_^) "}
   extra_extensions:   # A list of extra extensions to load by Sphinx.
     - sphinx_sitemap
   local_extensions:
