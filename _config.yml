@@ -2,6 +2,7 @@
 # Book settings
 title                       : "" # The title of the book. Will be placed in the left navbar.
 author                      : ""  # The author of the book
+language                    : "english"
 logo                        : "./_static/cookbook-logo-small.png"  # A path to the book logo
 exclude_patterns            : [.github/*, README.md, venv/*, node_modules/*, _content_not_in_toc/* ]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
@@ -22,7 +23,6 @@ html:
   use_issues_button         : True  # Whether to add an "open an issue" button
   home_page_in_navbar       : True  # Whether to include your home page in the left Navigation Bar
   baseurl                   : "https://fairplus.github.io/the-fair-cookbook"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
-  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
   extra_footer              :   # Will be displayed underneath the footer.
     <script>mermaid.init();</script>
     <div class="container-lg mt-3">
@@ -62,6 +62,7 @@ html:
     <div class="row_footer my-3">
       The FAIR Cookbook is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International</a> (CC BY 4.0) license.
     </div>
+  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
   google_analytics_id       : "UA-171697285-1"  # A GA id that can be used to track book views.
   comments:
     hypothesis: false
@@ -91,9 +92,11 @@ repository:
 sphinx:
    # - sphinx_tabs.tabs
   config                    :   # key-value pairs to directly over-ride the Sphinx configuration
-    html_extra_path         : ["_inject_after_build"]
     html_baseurl            : 'https://fairplus.github.io/the-fair-cookbook'
-    html_theme_options      : {"search_bar_text": "Search for FAIR recipes (^_^) "}
+    html_theme_options      : {
+        "search_bar_text": "Search for FAIR recipes (^_^) "
+    }
+    html_extra_path         : ["_inject_after_build"]
   extra_extensions:   # A list of extra extensions to load by Sphinx.
     - sphinx_sitemap
   local_extensions:
